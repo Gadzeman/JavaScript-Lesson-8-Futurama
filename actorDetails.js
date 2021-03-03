@@ -21,8 +21,11 @@ characterName.innerText = `Name: ${character.name.first} ${character.name.middle
 container.appendChild(characterName)
 
 let image = document.createElement("img")
-image.src = character.images.main
-container.appendChild(image)
+if(character.images) {
+    image.src = character.images.main;
+    container.appendChild(image)
+}
+
 
 let info = document.createElement("h3")
 info.innerHTML = `Age: ${character.age}<br>Gender: ${character.gender}<br>Home Planet: ${character.homePlanet}<br>Occupation: ${character.occupation}`
@@ -36,5 +39,9 @@ document.body.appendChild(wrap)
 
 wrap.style.display = "flex"
 wrap.style.justifyContent = "center"
+
+container.style.display = "flex"
+container.style.flexDirection = "column"
+container.style.alignItems = "center"
 
 info.style.textAlign = "center"
